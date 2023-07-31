@@ -17,7 +17,7 @@ export default function Login() {
   const handleSubmit = async e => {
     e.preventDefault();
     try {
-      const response = await axios.post('/api/login', user); // Substitua com a URL correta do seu backend
+      const response = await axios.post('/api/users/signin', user); // Substitua com a URL correta do seu backend
       Cookies.set('token', response.data.token);
       router.push('/dashboard');
     } catch (error) {
