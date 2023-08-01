@@ -1,9 +1,11 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
+import { ThemeContext } from '../src/contexts/ThemeContext';
 import axios from '../src/apiAxios';
 import Cookies from 'js-cookie';
 
 export default function Dashboard() {
   const [user, setUser] = useState(null);
+  const { theme, toggleTheme } = useContext(ThemeContext);
 
   useEffect(() => {
     const getUser = async () => {
@@ -26,9 +28,33 @@ export default function Dashboard() {
   if (!user) return <div>Loading...</div>;
 
   return (
-    <div>
+    <div className={`container${theme === 'dark' ? ' dark' : ''}`}>
       <h1>Dashboard</h1>
+      <div>
+        <label className="form-check-label">
+          Light
+          <input
+            type="radio"
+            value="light"
+            checked={theme === 'light'}
+            onChange={toggleTheme}
+            className="form-check-input"
+          />
+        </label>
+        <label className="form-check-label">
+          Dark
+          <input
+            type="radio"
+            value="dark"
+            checked={theme === 'dark'}
+            onChange={toggleTheme}
+            className="form-check-input"
+          />
+        </label>
+      </div>
       <h2>Welcome, {user.firstName} {user.lastName}</h2>
     </div>
+
+    
   );
 }

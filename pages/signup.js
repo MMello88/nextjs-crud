@@ -3,7 +3,7 @@ import axios from '../src/apiAxios';
 import { useRouter } from 'next/router';
 
 export default function Signup() {
-  const [user, setUser] = useState({ firstName: '', lastName: '', email: '', password: '' });
+  const [user, setUser] = useState({ firstName: 'Matheus', lastName: 'Mello', email: 'mm@gmail.com', password: '123' });
   const router = useRouter();
 
   const handleChange = e => {

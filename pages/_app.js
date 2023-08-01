@@ -1,3 +1,5 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 import { useState } from 'react';
 import { ThemeContext } from '../src/contexts/ThemeContext';
 import Layout from '../src/components/Layout';
